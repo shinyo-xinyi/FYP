@@ -31,7 +31,7 @@ def pca(X,y):
     plt.scatter(no_x, no_y, c='b', marker='x', label='bonafide')
     plt.title("PCA analysis")  # 显示标题
     plt.legend()
-    plt.savefig('./models1028/ocsoftmax/aug/pca.png', dpi=120)
+    plt.savefig('./models1028/ocsoftmax/aug/pca_dev.png', dpi=120)
     plt.show()
 
     print(pca.explained_variance_ratio_)  # 输出贡献率

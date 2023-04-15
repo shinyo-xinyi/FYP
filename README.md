@@ -12,7 +12,7 @@ pytorch==1.1.0
 
 The original audio data without augmentation of ASVspoof 2019 LA subset can be downloaded from [datashare](https://datashare.ed.ac.uk/handle/10283/3336) (dev/eval/train data are not attached due to the large size, and only protocol and scores). To implement data augmentation, remember to download MUSAN and RIR_NOISES data sets as well from [openslr](http://www.openslr.org/resources.php). The complete directory structure for the dataset is shown below:
 
-![image-20230414152638417](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20230414152638417.png)
+![image-20230414152638417](./dataset/dataset_structure.png)
 
 The LFCC features are extracted with the MATLAB implementation provided by the ASVspoof 2019 organizers. Please first run the `process_LA_data.m` with MATLAB, and then run `python3 reload_data.py` with python.
 Make sure you change the directory path to the path on your machine.

@@ -2,50 +2,28 @@ import argparse
 import os
 import torch
 from torch.utils.data import DataLoader
-import torch.nn as nn
-import torch.nn.functional as F
 from dataset import ASVspoof2019
-from evaluate_tDCF_asvspoof19 import compute_eer_and_tdcf
 from tqdm import tqdm
-import eval_metrics as em
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import manifold, datasets
 
 def val_model(feat_model_path, loss_model_path, part, add_loss, device):
     embedding_list = []
     label_list = []
-    dirname = os.path.dirname
-    basename = os.path.splitext(os.path.basename(feat_model_path))[0]
-    if "checkpoint" in dirname(feat_model_path):
-        dir_path = dirname(dirname(feat_model_path))
-    else:
-        dir_path = dirname(feat_model_path)
     model = torch.load(feat_model_path, map_location="cuda")
     model = model.to(device)
-    loss_model = torch.load(loss_model_path) if add_loss != "softmax" else None
     val_set = ASVspoof2019("LA", "features/ASVspoof2019/LA/Features_Python/",
                             "dataset/LA/LA/ASVspoof2019_LA_cm_protocols/", part,
                             "LFCC", feat_len=750, padding="repeat")
     valDataLoader = DataLoader(val_set, batch_size=16, shuffle=False, num_workers=0,
                                 collate_fn=val_set.collate_fn)
     model.eval()
-
     for i, (lfcc, audio_fn, tags, labels) in enumerate(tqdm(valDataLoader)):
         lfcc = lfcc.unsqueeze(1).float().to(device)
-        # tags = tags.to(device)
         labels = labels.to(device)
         feats, lfcc_outputs = model(lfcc)
-        # score = F.softmax(lfcc_outputs)[:, 0]
-
-        # print('feats',feats) # 256d
-        # print('lfcc_outputs',lfcc_outputs) # 2d
-
         for j in range(labels.size(0)):
             feat = feats[j].cpu().detach().numpy()
-            # print(feat)
             label = labels[j].cpu().detach().numpy()
-            # print(label)
             embedding_list.append(feat)
             label_list.append(label)
 
