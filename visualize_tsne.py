@@ -1,5 +1,9 @@
+'''
+    Visualize the extracted embeddings distribution using T-SNE method.
+'''
+
 import matplotlib.pyplot as plt
-from sklearn import manifold, datasets
+from sklearn import manifold
 import numpy as np
 
 def t_sne(X,y):
@@ -15,7 +19,7 @@ def t_sne(X,y):
                  fontdict={'weight': 'bold', 'size': 9})
     plt.xticks([])
     plt.yticks([])
-    plt.savefig('./models/ocsoftmax/40epochs/tsne_eval.png', dpi=120)
+    plt.savefig('./models/ocsoftmax/40epochs/tsne_40_eval.png', dpi=120)
     plt.show()
 
 if __name__ == "__main__":

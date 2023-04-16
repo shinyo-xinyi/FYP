@@ -1,7 +1,9 @@
+'''
+    Visualize the extracted embeddings distribution using PCA method.
+'''
+
 import numpy as np
-import pandas as pd
 import seaborn as sns
-from sklearn import preprocessing
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
@@ -29,12 +31,12 @@ def pca(X,y):
     plt.rc('font', family='Times New Roman')
     plt.scatter(yes_x, yes_y, c='r', marker='o', label='spoof')
     plt.scatter(no_x, no_y, c='b', marker='x', label='bonafide')
-    plt.title("PCA analysis")  # 显示标题
+    plt.title("PCA analysis")
     plt.legend()
-    plt.savefig('./models1028/ocsoftmax/aug/pca_dev.png', dpi=120)
+    plt.savefig('./models1028/ocsoftmax/aug/pca_40_dev.png', dpi=120)
     plt.show()
 
-    print(pca.explained_variance_ratio_)  # 输出贡献率
+    print(pca.explained_variance_ratio_)
 
 
 if __name__ == "__main__":

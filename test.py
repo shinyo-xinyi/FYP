@@ -1,8 +1,11 @@
+'''
+    Test the voice spoofing detection system using the evaluation data set.
+'''
+
 import argparse
 import os
 import torch
 from torch.utils.data import DataLoader
-import torch.nn as nn
 import torch.nn.functional as F
 from dataset import ASVspoof2019
 from evaluate_tDCF_asvspoof19 import compute_eer_and_tdcf

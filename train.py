@@ -1,5 +1,5 @@
 '''
-This is the main code of the ASVspoof project, to define the parameters and build the construction
+    Train the voice spoofing detection system.
 '''
 
 import argparse
@@ -44,7 +44,7 @@ def initParams():
     parser.add_argument("--enc_dim", type=int, help="encoding dimension", default=256)
 
     # Training hyperparameters
-    parser.add_argument('--num_epochs', type=int, default=20, help="Number of epochs for training")
+    parser.add_argument('--num_epochs', type=int, default=10, help="Number of epochs for training")
     parser.add_argument('--batch_size', type=int, default=32, help="Mini batch size for training")
     parser.add_argument('--lr', type=float, default=0.0003, help="learning rate")
     parser.add_argument('--lr_decay', type=float, default=0.5, help="decay learning rate")

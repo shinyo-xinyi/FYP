@@ -1,5 +1,8 @@
+'''
+    Test the single attack influence on the voice spoofing detection system using the evaluation data set.
+'''
+
 import argparse
-import os
 import torch
 import eval_metrics as em
 import numpy as np
