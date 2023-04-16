@@ -29,8 +29,8 @@ def pca(X,y):
     sns.set(font_scale=1.2)
 
     plt.rc('font', family='Times New Roman')
-    plt.scatter(yes_x, yes_y, c='r', marker='o', label='spoof')
-    plt.scatter(no_x, no_y, c='b', marker='x', label='bonafide')
+    plt.scatter(yes_x, yes_y, c='b', marker='o', label='spoof')
+    plt.scatter(no_x, no_y, c='r', marker='x', label='bonafide')
     plt.title("PCA analysis")
     plt.legend()
     plt.savefig('./models1028/ocsoftmax/aug/pca_40_dev.png', dpi=120)
