@@ -19,10 +19,10 @@ def t_sne(X,y):
                  fontdict={'weight': 'bold', 'size': 9})
     plt.xticks([])
     plt.yticks([])
-    plt.savefig('./models/ocsoftmax/40epochs/tsne_40_eval.png', dpi=120)
+    plt.savefig('./models_retrained/ocsoftmax/40epochs/tsne_40_eval.png', dpi=120)
     plt.show()
 
 if __name__ == "__main__":
-    labels = np.load('./models/ocsoftmax/40epochs/labels2.npy')
-    feats = np.load('./models/ocsoftmax/40epochs/embeddings2.npy')
+    labels = np.load('models_retrained/ocsoftmax/40epochs/labels2.npy')
+    feats = np.load('models_retrained/ocsoftmax/40epochs/embeddings2.npy')
     t_sne(feats, labels)

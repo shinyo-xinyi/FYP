@@ -35,7 +35,7 @@ def initParams():
                         # help="The path to the RIR dataset")
     parser.add_argument("-p", "--path_to_protocol", type=str, help="protocol path",
                         default='dataset/LA/LA/ASVspoof2019_LA_cm_protocols/')
-    parser.add_argument("-o", "--out_fold", type=str, help="output folder", required=True, default='./models/')
+    parser.add_argument("-o", "--out_fold", type=str, help="output folder", required=True, default='./models_retrained/')
 
     # Dataset prepare
     parser.add_argument("--feat_len", type=int, help="features length", default=750)

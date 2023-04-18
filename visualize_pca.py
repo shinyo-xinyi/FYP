@@ -33,13 +33,13 @@ def pca(X,y):
     plt.scatter(no_x, no_y, c='r', marker='x', label='bonafide')
     plt.title("PCA analysis")
     plt.legend()
-    plt.savefig('./models1028/ocsoftmax/aug_test_result/pca_40_dev.png', dpi=120)
+    plt.savefig('./models_original/ocsoftmax/aug_test_result/pca_40_dev.png', dpi=120)
     plt.show()
 
     print(pca.explained_variance_ratio_)
 
 
 if __name__ == "__main__":
-    labels = np.load('models1028/ocsoftmax/aug_test_result/labels.npy')
-    feats = np.load('models1028/ocsoftmax/aug_test_result/embeddings.npy')
+    labels = np.load('models_original/ocsoftmax/aug_test_result/labels.npy')
+    feats = np.load('models_original/ocsoftmax/aug_test_result/embeddings.npy')
     pca(feats, labels)

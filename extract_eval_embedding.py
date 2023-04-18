@@ -37,8 +37,8 @@ def eval_model(feat_model_path, part, device):
     embeddings = np.array(embedding_list)
     labels = np.array(label_list)
 
-    np.save("./models/amsoftmax/embeddings2.npy", embeddings)
-    np.save("./models/amsoftmax/labels2.npy", labels)
+    np.save("models_retrained/amsoftmax/embeddings2.npy", embeddings)
+    np.save("models_retrained/amsoftmax/labels2.npy", labels)
 
 
 def eval(model_dir, device):
@@ -48,7 +48,7 @@ def eval(model_dir, device):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model", default="./models/amsoftmax/")
+    parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model", default="./models_retrained/amsoftmax/")
     parser.add_argument("--gpu", type=str, help="GPU index", default="0")
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu

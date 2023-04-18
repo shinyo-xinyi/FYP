@@ -35,8 +35,8 @@ def val_model(feat_model_path, part, device):
     embeddings = np.array(embedding_list)
     labels = np.array(label_list)
 
-    np.save("./models1028/ocsoftmax/embeddings.npy", embeddings)
-    np.save("./models1028/ocsoftmax/labels.npy", labels)
+    np.save("models_original/ocsoftmax/embeddings.npy", embeddings)
+    np.save("models_original/ocsoftmax/labels.npy", labels)
 
 
 def val(model_dir, device):
@@ -47,7 +47,7 @@ def val(model_dir, device):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model",
-                        default="./models1028/ocsoftmax/aug_test_result/")
+                        default="./models_original/ocsoftmax/aug_test_result/")
     parser.add_argument("--gpu", type=str, help="GPU index", default="0")
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu

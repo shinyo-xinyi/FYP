@@ -134,7 +134,7 @@ def test_individual_attacks(cm_score_file):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model", default="./models/ocsoftmax")
+    parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model", default="./models_retrained/ocsoftmax")
     parser.add_argument('-l', '--loss', type=str, default="ocsoftmax",
                         choices=["softmax", 'amsoftmax', 'ocsoftmax'], help="loss function")
     parser.add_argument("--gpu", type=str, help="GPU index", default="0")
