@@ -237,7 +237,7 @@ class ResNet(nn.Module):
             x = self.torchlfcc(x)+1e-6 # +1e-6 is used to offset undetermined equality due to errors in floating-point arithmetic
             x = x.log()
             x = x - torch.mean(x, dim=-1, keepdim=True)
-            # if aug == True:
+            # if aug_test_result == True:
                 # x = self.specaug(x)
         '''
 

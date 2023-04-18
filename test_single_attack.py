@@ -52,6 +52,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     args.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    eer_cm_lst = test_individual_attacks(os.path.join(args.model_dir, 'checkpoint_cm_score.txt'))
+    eer_cm_lst = test_individual_attacks(os.path.join(args.model_dir, 'eval_cm_score.txt'))
 
 

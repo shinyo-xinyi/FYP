@@ -47,7 +47,7 @@ def val(model_dir, device):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-m', '--model_dir', type=str, help="path to the trained model",
-                        default="./models1028/ocsoftmax/aug/")
+                        default="./models1028/ocsoftmax/aug_test_result/")
     parser.add_argument("--gpu", type=str, help="GPU index", default="0")
     args = parser.parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu

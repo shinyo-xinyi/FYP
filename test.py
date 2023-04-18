@@ -30,7 +30,7 @@ def test_model(feat_model_path, loss_model_path, part, add_loss, device):
                                 collate_fn=test_set.collate_fn)
     model.eval()
 
-    with open(os.path.join(dir_path, 'checkpoint_cm_score.txt'), 'w') as cm_score_file:
+    with open(os.path.join(dir_path, 'eval_cm_score.txt'), 'w') as cm_score_file:
         for i, (lfcc, audio_fn, tags, labels) in enumerate(tqdm(testDataLoader)):
             lfcc = lfcc.unsqueeze(1).float().to(device)
             tags = tags.to(device)
@@ -52,7 +52,7 @@ def test_model(feat_model_path, loss_model_path, part, add_loss, device):
                                           "spoof" if labels[j].data.cpu().numpy() else "bonafide",
                                           score[j].item()))
 
-    eer_cm, min_tDCF = compute_eer_and_tdcf(os.path.join(dir_path, 'checkpoint_cm_score.txt'), "dataset/LA/")
+    eer_cm, min_tDCF = compute_eer_and_tdcf(os.path.join(dir_path, 'eval_cm_score.txt'), "dataset/LA/")
 
     return eer_cm, min_tDCF
 
@@ -142,6 +142,6 @@ if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     args.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     test(args.model_dir, args.loss, args.device)
-    # eer_cm_lst, min_tDCF_lst = test_individual_attacks(os.path.join(args.model_dir, 'checkpoint_cm_score.txt'))
+    # eer_cm_lst, min_tDCF_lst = test_individual_attacks(os.path.join(args.model_dir, 'eval_cm_score.txt'))
     # print(eer_cm_lst)
     # print(min_tDCF_lst)
